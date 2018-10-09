@@ -9,15 +9,15 @@
 # and costs money. The goal of this project is to create a lightweight blockchain manager prototype for the means
 # of synchronising blockchain data easily and making it accessible to all
 
-
-# Retrieve ethereum-etl blockchain data
-# prototype for a larger system
-
 echo "Ethereum Blockchain Repository Manager v0.01"
-sleep 2;
+
 
 # Directory ran locally at marketwizards for the process to create manifests
 cd ~
+
+# Before retrieving manifest of files delete any existing data
+rm .marketwizards/manifest/*
+
 wget http://repo.marketwizards.io/manifest/all.manifest -P .marketwizards/manifest
 
 while IFS='' read -r line || [[ -n "$line" ]]; do
