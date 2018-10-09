@@ -16,3 +16,11 @@ find token_transfers/ -type f | grep csv | sort -n > manifest/token_transfers.ma
 find transaction_hashes/ -type f | grep csv | sort -n > manifest/transaction_hashes.manifest
 find transactions/ -type f | grep csv | sort -n > manifest/transactions.manifest
 
+# We will in future versions offer synchronising partial tables, however
+# for now we will bulk the manifests into a single file for simplicity
+# and alter the mwserver and mwclient shellscript prototypes to use
+# an all.manifest instead in the meantime
+
+rm manifest/all.manifest
+cat manifest/*.manifest > manifest/all.manifest
+
